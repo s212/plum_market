@@ -13,9 +13,9 @@ class query
 
 		 
 	}
-	public function creat_Account($UserName,$password ,$Email ,$Id)
+public function creat_Account($UserName,$password ,$Email)
 	{
-		$sql="INSERT INTO Account (UserName,password ,Email ,Id ) Values ('$UserName','$password' ,'$Email' ,12)";
+		$sql="INSERT INTO Account (UserName,password ,Email) Values ('$UserName','$password' ,'$Email')";
             $result = mysqli_query($this->conn, $sql);
 			if($result)
 					echo "Account created successfully";
