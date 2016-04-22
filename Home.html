@@ -111,10 +111,10 @@ $result=$controller->View_Products();
                 <p class="lead">plumbing Companies</p>
                 <div class="list-group">
                 	<?php 
-     if (mysqli_num_rows($r1) > 0) 
+     if (mysqli_num_rows($result) > 0) 
      {
     // output data of each row
-    while($row = mysqli_fetch_assoc($r1))
+    while($row = mysqli_fetch_assoc($result))
   
     
          {?>
