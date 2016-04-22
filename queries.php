@@ -19,6 +19,7 @@ public function creat_Account($UserName,$password ,$Email)
             $result = mysqli_query($this->conn, $sql);
 			if($result)
 					echo "Account created successfully";
+	mysqli_close($conn);
 
 	}
 	public function View_Products()
@@ -26,6 +27,7 @@ public function creat_Account($UserName,$password ,$Email)
 		
             $sql = "SELECT * FROM Product";
             $result = mysqli_query($this->conn, $sql);
+            mysqli_close($conn);
 			return $result;
 	}
 	public function View_Company()
@@ -33,6 +35,7 @@ public function creat_Account($UserName,$password ,$Email)
 		
             $sql = "SELECT Name FROM Company";
             $result= mysqli_query($this->conn, $sql);
+            mysqli_close($conn);
 			return $result;
 	}
 	public function Get_Emails($email)
@@ -41,9 +44,25 @@ public function creat_Account($UserName,$password ,$Email)
             $sql = "SELECT email FROM Account where Email='".$email."'";
             $result = mysqli_query($this->conn, $sql);
 			$numResults = mysqli_num_rows($result);
+			mysqli_close($conn);
             return $numResults;
 	}
-	
+	public function Add_Product($Name ,$Description ,$Price,$Num ,$Rate , $P_Type,$Country,$Company_Id )
+	{
+		
+            $sql = "INSERT INTO Product (Name ,Description ,Price,Num ,Rate , P_Type,Country,Company_Id  ) Values ('$Name' ,'$Description' ,'$Price','$Num','$Rate' , '$P_Type','$Country','$Company_Id' )";
+            $result = mysqli_query($this->conn, $sql);
+		     mysqli_close($conn);
+			 return $result;
+	}
+	public function Get_Company_Id($Name)
+	{
+		
+            $sql = "SELECT Id FROM company where Name='".$Name."'";
+            $result = mysqli_query($this->conn, $sql);
+			mysqli_close($conn);
+			return $result;
+	}
 	
 	
 }
