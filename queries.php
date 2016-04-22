@@ -31,7 +31,7 @@ public function creat_Account($UserName,$password ,$Email)
 	public function View_Company()
 	{
 		
-            $sql = "SELECT Name * FROM Company";
+            $sql = "SELECT Name FROM Company";
             $r1 = mysqli_query($this->conn, $sql);
 			return $result;
 	}
