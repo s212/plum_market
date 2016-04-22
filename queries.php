@@ -32,7 +32,7 @@ public function creat_Account($UserName,$password ,$Email)
 	{
 		
             $sql = "SELECT Name FROM Company";
-            $r1 = mysqli_query($this->conn, $sql);
+            $result= mysqli_query($this->conn, $sql);
 			return $result;
 	}
 	public function Get_Emails($email)
