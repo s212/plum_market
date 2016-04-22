@@ -33,6 +33,10 @@
 </head>
 
 <body>
+<?php
+include("Controller.php");
+$controller=new controller();
+?>
 
     <div id="wrapper">
 
@@ -290,17 +294,53 @@
                     </div>
                 </div>
 
-                <div class="container">
+        <div class="container">
         <h2>Add_product</h2>
-		<form>
-			<h2><input type="text" class="name" placeholder="name" required=""></h2>
-			<h2><input type="text" class="price" placeholder="price" required=""></h2>
-			<h2><input type="text" class="quantity" placeholder="quantity" required=""></h2>
-			<h2><input type="text" class="type" placeholder="type" required=""></h2>
+		<form action="" method="post">
+			<h2><input name="name" type="text" class="name" placeholder="name" required=""></h2>
+			<h2><input name="price" type="text" class="name" placeholder="price" required=""></h2>
+			<h2><input name="quantity" type="text" class="name" placeholder="quantity" required=""></h2>
+			<h2><input name="type" type="text" class="name" placeholder="type" required=""></h2>
+			<h2><input name="description" type="text" class="name" placeholder="description" required=""></h2>
+			<h2><input name="countery" type="text" class="name" placeholder="countery" required=""></h2>
+
 			<div class="clear"></div>
+
+		
+       
+	   <h2> <select name="company" class="pull-Left">
+         <optgroup  label="Company">
+<?php                                  
+   $result=$controller->View_Company();
+     if (mysqli_num_rows($result) > 0) 
+     {
+    // output data of each row
+         while($row = mysqli_fetch_assoc($result))
+  
+    
+         {?>
+          <option >  <?php echo  $row["Name"]; ?> </option>
+ <?php						
+         }
+     } 
+
+    else 
+    {
+      echo "0 results";
+    }
+ ?>  
+          </optgroup> 
+        </select> </h2>
+       
+			 <input name="action" type="hidden" value="addproduct"> 
 			<h2><input type="submit" value="Add"></h2>
 		</form>
+		
+             
 	</div>
+<?php
+$controller->Add_Product();
+?>
 	<div class="footer">
 		
 	</div>
