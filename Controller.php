@@ -45,4 +45,10 @@ public function View_Products()
 		return $result ;
    
 	}
+	public function View_Company()
+	{
+		$result = $this->query->View_Company();
+		return $result ;
+   
+	}
 ?>
