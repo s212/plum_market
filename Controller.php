@@ -1,12 +1,12 @@
 <?php
-include("queries.php")
-class query 
+include("queries.php");
+class controller 
 {
 	private $query;
 	
 	public function __construct()
-	{
-		$query=new query();
+	{  
+		$this->query=new query();
 	}
 	public function creat_Account()
 	{
@@ -16,11 +16,9 @@ class query
         {
         $username= $_POST["name"];
         $email= $_POST["email"];
-        $password=$_POST["password"];
-        $query = "SELECT email FROM Account where Email='".$email."'";
-        $result = mysqli_query($conn,$query);
-        $numResults = mysqli_num_rows($result);
-		
+        $password=$_POST["password"]; 
+        $numResults= $this->query->Get_Emails($email);
+
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
         {
             echo $message =  "Invalid email address please type a valid email!!";
@@ -34,19 +32,19 @@ class query
 	      if($username!=""&&$email!=""&&$password!="")
 		  {
 			
-			$query->creat_Account($username,$password ,$email,1);
+			$this->query->creat_Account($username,$password ,$email,1);
 		  }
 	
-         }
+        }
         } 
      }
 	}
-	public function View_Products($UserName,$password ,$Email ,$Id)
+	public function View_Products()
 	{
 		$result = $query->View_Products();
         $rowcount=mysqli_num_rows($result);
-   if (mysqli_num_rows($result) > 0) 
-    {
+     if (mysqli_num_rows($result) > 0) 
+     {
     // output data of each row
     while($row = mysqli_fetch_assoc($result))
   
