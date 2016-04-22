@@ -111,11 +111,12 @@ $controller=new controller();
                 <p class="lead">plumbing Companies</p>
                 <div class="list-group">
                 	<?php 
+                	  $result=$controller->View_Company();
      if (mysqli_num_rows($result) > 0) 
      {
     // output data of each row
     while($row = mysqli_fetch_assoc($result))
-  $result=$controller->View_Company();
+
     
          {?>
           <a href="Company_1.html" class="list-group-item">  <?php echo $row["Name"];?></a>
@@ -179,13 +180,13 @@ $controller=new controller();
 
                         </div>
 <?php
-   
+     $result=$controller->View_Products();
      if (mysqli_num_rows($result) > 0) 
      {
     // output data of each row
     while($row = mysqli_fetch_assoc($result))
   
-    $result=$controller->View_Products();
+  
          {?>
             <div class="col-sm-4 col-lg-4 col-md-4">
                                 <div class="thumbnail">
