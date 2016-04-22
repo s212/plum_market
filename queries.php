@@ -31,7 +31,7 @@ class query
 	public function View_Company()
 	{
 		
-            $sql = "SELECT * FROM Company";
+            $sql = "SELECT Name * FROM Company";
             $result = mysqli_query($this->conn, $sql);
 			return $result;
 	}
