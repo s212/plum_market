@@ -64,6 +64,10 @@ public function creat_Account($UserName,$password ,$Email)
 			return $result;
 	}
 	
-	
+		public function  Delete_Company()
+		{
+			$sql=
+			
+		}
 }
 ?>
