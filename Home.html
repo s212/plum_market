@@ -46,8 +46,11 @@
 
 <body>
 
-
-
+<?php 
+include("Controller.php");
+$controller=new controller();
+$result=$controller->View_Products();
+?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -107,9 +110,26 @@
             <div class="col-md-3">
                 <p class="lead">plumbing Companies</p>
                 <div class="list-group">
-                    <a href="Company_1.html" class="list-group-item">Company 1</a>
-                    <a href="Company_2.html" class="list-group-item">Company 2</a>
-                    <a href="Company_3.html" class="list-group-item">Company 3</a>
+                	<?php 
+     if (mysqli_num_rows($r1) > 0) 
+     {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($r1))
+  
+    
+         {?>
+          <a href="Company_1.html" class="list-group-item">  <?php echo $row["Name"];?></a>
+							
+<?php						
+      }
+    } 
+
+    else 
+    {
+      echo "0 results";
+    }
+ ?>  
+             
 
                     <br />
                     <p class="lead">plumbing Galaries</p>
@@ -158,9 +178,7 @@
                             </div>
 
                         </div>
-<?php include("Controller.php");
-$controller=new controller();
-$result=$controller->View_Products();
+<?php
    
      if (mysqli_num_rows($result) > 0) 
      {
