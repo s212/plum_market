@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 	Author: W3layouts
 	Author URL: http://w3layouts.com
 	License: Creative Commons Attribution 3.0 Unported
@@ -49,5 +49,10 @@
 	<div class="footer">
 		
 	</div>
+<?php
+include("Controller.php");
+$controller=new controller();
+$controller->creat_Account();
+?>
 </body>
 </html>
