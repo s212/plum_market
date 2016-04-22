@@ -57,4 +57,30 @@ class controller
 		return $result ;
    
 	}
+	public function Add_Product()
+	{
+		if(isset($_POST['action']))
+      {          
+        if($_POST['action']=="addproduct")
+        {
+        $name= $_POST["name"];
+        $price= $_POST["price"];
+        $quantity=$_POST["quantity"]; 
+		$type=$_POST["type"];
+		$description=$_POST["description"];
+		$countery=$_POST["countery"];
+		$company=$_POST["company"];
+		
+			$row=mysqli_fetch_assoc($this->query->Get_Company_Id($company));
+			$result=$this->query->Add_Product($name ,$description,$price,$quantity,0,$type,$countery,$row["Id"] );
+	       if($result)
+		  
+					echo "Company Added successfully";
+		    else echo "faild";
+		}
+	
+        }
+        
+	}
+}
 ?>
