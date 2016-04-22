@@ -32,7 +32,7 @@ class controller
 	      if($username!=""&&$email!=""&&$password!="")
 		  {
 			
-			$this->query->creat_Account($username,$password ,$email,1);
+			$this->query->creat_Account($username,$password ,$email);
 		  }
 	
         }
