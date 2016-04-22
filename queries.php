@@ -28,6 +28,13 @@ class query
             $result = mysqli_query($this->conn, $sql);
 			return $result;
 	}
+	public function View_Company()
+	{
+		
+            $sql = "SELECT * FROM Company";
+            $result = mysqli_query($this->conn, $sql);
+			return $result;
+	}
 	public function Get_Emails($email)
 	{
 		
