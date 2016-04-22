@@ -39,7 +39,7 @@ class controller
         } 
      }
 	}
-public function View_Products()
+        public function View_Products()
 	{
 		$result = $this->query->View_Products();
 		return $result ;
@@ -48,6 +48,12 @@ public function View_Products()
 	public function View_Company()
 	{
 		$result = $this->query->View_Company();
+		return $result ;
+   
+	}
+		public function Delete_Company()
+	{
+		$result = $this->query->Delete_Company();
 		return $result ;
    
 	}
