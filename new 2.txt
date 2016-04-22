@@ -1,0 +1,14 @@
+     <div id="tabs-2" class="container">
+        <h2>Sign up</h2>
+		<form action="" method="post">
+			<input id="name" type="text" class="name" placeholder="First name" required="">
+   			<input id="email" type="text" class="name" placeholder="Email address" required="">
+            <input input id="password" type="password" class="password" placeholder="Password" required="">
+            <!--<input type="password" class="password" placeholder="Re-enter Password" required="">-->
+            <input name="action" type="hidden" value="signup"> 
+
+			
+			<div class="clear"></div>
+			<input type="submit" value="SIGN UP">
+		</form>
+	</div>
