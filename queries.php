@@ -55,6 +55,34 @@ public function creat_Account($UserName,$password ,$Email)
 		     mysqli_close($conn);
 			 return $result;
 	}
+	
+	public function Log_In($myusername,$mypassword)
+	{
+		$sql = "SELECT Id FROM account WHERE  password = '".$mypassword."' AND   UserName = '".$myusername."'";
+            $result = mysqli_query($this->conn, $sql);
+			if($result)
+					echo "You are logged in";
+				else 
+				{
+					 $error = "Sorry Your Login Name or Password is invalid , try again";
+		               echo $error;
+				}
+				
+				
+
+	}
+	public function View_Acc()
+	{
+		$sql = "SELECT Id  FROM account";
+        $result = mysqli_query($this->conn, $sql);
+		return $result;
+			
+			
+		
+	}
+	
+	
+	
 	public function Get_Company_Id($Name)
 	{
 		
