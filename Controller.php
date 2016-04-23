@@ -39,6 +39,21 @@ class controller
         } 
      }
 	}
+	public function Log_In()
+	{
+		//$result = $this->query->Log_In($username,$password);
+		
+   
+	}
+	public function View_Acc()
+	{
+		$result = $this->query->View_Acc();
+		return $result ;
+		
+	}
+	
+	
+	
         public function View_Products()
 	{
 		$result = $this->query->View_Products();
