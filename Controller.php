@@ -1,12 +1,21 @@
 <?php
-include("queries.php");
+include("new_quiry.php");
 class controller 
 {
-	private $query;
-	
+	private $Account;
+	private $Company;
+	private $Product;
+	private $Offer;
+	private $Gallary;
+	private $Pipes;
 	public function __construct()
 	{  
-		$this->query=new query();
+		$this->Account=new Account();
+		$this->Company=new Company();
+		$this->Product=new Product();
+		$this->Offer=new Offer();
+		$this->Pipes=new Pipes();
+		
 	}
 	public function creat_Account()
 	{
