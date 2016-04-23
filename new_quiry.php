@@ -54,6 +54,20 @@ class Product extends  foo
 		     mysqli_close($conn);
 			 return $result;
 	}
+	public function Get_Product_Names()
+	{
+		
+            $sql ="SELECT Name FROM Product";
+            $result = mysqli_query($this->conn,$sql);
+			return $result;
+	}
+	public function Delete_Product($name)
+	{
+		
+            $sql ="delete FROM Product where Name='".$name."'";
+            $result = mysqli_query($this->conn,$sql);
+			return $result;
+	}
 }
 class Company extends  foo
 {
@@ -74,11 +88,14 @@ class Company extends  foo
 			return $result;
 	}
 	
-		public function  Delete_Company()
-		{
-			
-			
-		}
+	public function Delete_Company($name)
+	{
+		
+            $sql ="delete FROM company where Name='".$name."'";
+            $result = mysqli_query($this->conn,$sql);
+			return $result;
+	}
+
 }
 class Offer extends  foo
 {}
