@@ -26,7 +26,7 @@ class controller
         $username= $_POST["name"];
         $email= $_POST["email"];
         $password=$_POST["password"]; 
-        $numResults= $this->query->Get_Emails($email);
+        $numResults= $this->Account->Get_Emails($email);
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
         {
@@ -41,7 +41,7 @@ class controller
 	      if($username!=""&&$email!=""&&$password!="")
 		  {
 			
-			$this->query->creat_Account($username,$password ,$email);
+			$this->Account->creat_Account($username,$password ,$email);
 		  }
 	
         }
@@ -56,7 +56,7 @@ class controller
 	}
 	public function View_Acc()
 	{
-		$result = $this->query->View_Acc();
+		$result = $this->Account->View_Acc();
 		return $result ;
 		
 	}
@@ -65,13 +65,13 @@ class controller
 	
         public function View_Products()
 	{
-		$result = $this->query->View_Products();
+		$result = $this->Product->View_Products();
 		return $result ;
    
 	}
 	public function View_Company()
 	{
-		$result = $this->query->View_Company();
+		$result = $this->Company->View_Company();
 		return $result ;
    
 	}
@@ -89,7 +89,7 @@ class controller
 		$description=$_POST["description"];
 		$countery=$_POST["countery"];
 		$company=$_POST["company"];
-		$row=mysqli_fetch_assoc($this->query->Get_Company_Id($company));
+		$row=mysqli_fetch_assoc($this->Company->Get_Company_Id($company));
 		$result=$this->query->Add_Product($name ,$description,$price,$quantity,0,$type,$countery,$row["Id"] );
 	        if($result)
 		  
@@ -109,7 +109,7 @@ class controller
                 $name= $_POST["name"];
                 $email=$_POST["email"]; 
 		$phone_num=$_POST["phone_num"];
-		$result=$this->query->Add_Company($name ,$email,$phone_num);
+		$result=$this->Company->Add_Company($name ,$email,$phone_num);
 	        if($result)
 		  
 					echo "Company Added successfully";
@@ -122,7 +122,7 @@ class controller
 	}
 	 public function Get_Product_Names()
 	{   $error = "Sorry Your Login Name or Password is invalid , try again";
-		$result = $this->query->Get_Product_Names();
+		$result = $this->Product->Get_Product_Names();
 		if($result)
 		  
 					echo "Company Added successfully";
@@ -142,7 +142,7 @@ class controller
         {
             $name= $_POST["Product"];
 			
-			$result=$this->query->Delete_Product($name);
+			$result=$this->Product->Delete_Product($name);
 	   if($result)
 		  
 		  echo "<script type='text/javascript'>alert('$success');</script>";
@@ -164,7 +164,7 @@ public function Delete_Company()
         {
             $name= $_POST["company2"];
 			
-			$result=$this->query->Delete_Company($name);
+			$result=$this->Company->Delete_Company($name);
 	   if($result)
 		  
 		  echo "<script type='text/javascript'>alert('$success');</script>";
