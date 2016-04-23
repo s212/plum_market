@@ -145,16 +145,17 @@ class controller
 	 }
 	}
    
-	public function Delete_Company()
+public function Delete_Company()
 	
 	{  $error="deletion failed";
 	   $success="Company deleted  successfully";
-         
-        if((!empty($_POST['Delete_c']=="Delete Company"))
+		if(isset($_POST['action2']))
+      {          
+        if($_POST['action2']=="Delete Company")
         {
-            $name= $_POST["Company"];
+            $name= $_POST["company2"];
 			
-			$result=$this->query->Delete_Product($name);
+			$result=$this->query->Delete_Company($name);
 	   if($result)
 		  
 		  echo "<script type='text/javascript'>alert('$success');</script>";
@@ -163,9 +164,8 @@ class controller
 	
         }
             
-	 
+	 }
 	}
-	
         
 	
 }
