@@ -129,7 +129,7 @@ class controller
 	   $success="product deleted  successfully";
 		if(isset($_POST['action']))
       {          
-        if($_POST['action']=="Delete Product")
+        if (!empty($_POST['action']=="Delete Product"))
         {
             $name= $_POST["Product"];
 			
@@ -149,9 +149,8 @@ class controller
 	
 	{  $error="deletion failed";
 	   $success="Company deleted  successfully";
-		if(isset($_POST['action']))
-      {          
-        if($_POST['action']=="Delete Company")
+         
+        if((!empty($_POST['Delete_c']=="Delete Company"))
         {
             $name= $_POST["Company"];
 			
@@ -164,7 +163,7 @@ class controller
 	
         }
             
-	 }
+	 
 	}
 	
         
