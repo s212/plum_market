@@ -69,15 +69,30 @@ public function creat_Account($UserName,$password ,$Email)
 		$sql = "SELECT Id FROM account WHERE  password = '".$mypassword."' AND   UserName = '".$myusername."'";
             $result = mysqli_query($this->conn, $sql);
 			if($result)
-					echo "You are logged in";
-				else 
-				{
-					 $error = "Sorry Your Login Name or Password is invalid , try again";
-		               echo $error;
-				}
+			{
+					 $row = mysqli_fetch_array($result);
+      //$active = $row['active'];
+      $count = mysqli_num_rows($result);
+		
+      if($count == 1) 
+	  {
+        
+         $_SESSION['login_user'] = $myusername;
+         $message = "You are logged in ";
+		 header("location: After_Login.php");
+		 echo $message;
+         
+      }
+	  else 
+	  {
+          $error = "Sorry Your Login Name or Password is invalid , try again";
+		 
+		 echo "<script type='text/javascript'>alert('$error');</script>";
 				
 				
 
+	}
+}
 	}
 	public function View_Acc()
 	{
