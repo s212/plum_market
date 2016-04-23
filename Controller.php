@@ -96,6 +96,25 @@ class controller
 	
         }
         
+	}	public function Add_Company()
+	{
+		if(isset($_POST['action']))
+      {          
+        if($_POST['action']=="addcompany")
+        {
+                $name= $_POST["name"];
+                $email=$_POST["email"]; 
+		$phone_num=$_POST["phone_num"];
+		$result=$this->query->Add_Company($name ,$email,$phone_num);
+	        if($result)
+		  
+					echo "Company Added successfully";
+		else 
+		                        echo "faild";
+		}
+	
+        }
+        
 	}
 }
 ?>
