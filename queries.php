@@ -92,10 +92,12 @@ public function creat_Account($UserName,$password ,$Email)
 			return $result;
 	}
 	
-		public function  Delete_Company()
+		public function  Delete_Company($Name)
 		{
-			$sql=
-			
+			$sql=" DELETE FROM company WHERE Name='".$Name."'";
+			$result = mysqli_query($this->conn, $sql);
+			mysqli_close($conn);
+			return $result;
 		}
 }
 ?>
