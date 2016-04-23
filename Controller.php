@@ -91,14 +91,14 @@ public function Log_In()
 		
    
 	}
+	
+	
 	public function View_Acc()
 	{
 		$result = $this->Account->View_Acc();
 		return $result ;
 		
 	}
-	
-	
 	
         public function View_Products()
 	{
