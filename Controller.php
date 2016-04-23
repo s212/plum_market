@@ -48,9 +48,46 @@ class controller
         } 
      }
 	}
-	public function Log_In()
+public function Log_In()
 	{
-		//$result = $this->query->Log_In($username,$password);
+		
+        if(isset($_POST["action1"]) )
+      {     
+          
+  
+        if($_POST['action1']=="SIGN IN")
+        {
+		
+		 session_start();
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST") 
+   {
+       //username and password sent from form 
+     
+     
+		 $username= $_POST["username"];
+         $password =  $_POST["password"];
+		  $_SESSION['username']= $username;
+		  $_SESSION['logged']= true;
+         $result = $this->query->Log_In($username,$password);
+		 
+				
+      
+	 
+	  
+	  }
+	 
+		  
+         
+	  }
+		
+				
+				
+	  
+                
+        
+		
+	  }
 		
    
 	}
