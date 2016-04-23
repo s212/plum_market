@@ -268,49 +268,63 @@ $controller=new controller();
                         </div>
                     </div>
                     
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                       
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        
-                                 
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
+                                
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    
+					<div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
                                         
                                     </div>
-                                    <div class="col-xs-9 text-right">
-                                <select name="num" class="pull-right">
-                                <optgroup label="Company">
- 
-          <option >  1 </option>
- 
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div>
-                            <button dir="rtl" type="submit" class="btn btn-primary">Delete Company</button>
+                        <div class="col-xs-9 text-right">
+                            <div>
+                           <form action="" method="post">
+						   <div class="col-xs-9 text-right">
                        
+                            <select name="Company" class="pull-right">
+                                <optgroup label="Company">
+                                   
+<?php                                  
+   $result=$controller->View_Company();
+     if (mysqli_num_rows($result) > 0) 
+     {
+    // output data of each row
+         while($row = mysqli_fetch_assoc($result))
+  
+    
+         {?>
+          <option >  <?php echo  $row["Name"]; ?> </option>
+   <?php						
+         }
+     } 
+
+    else 
+    {
+      echo "0 results";
+    }
+	$controller->Delete_Company();
+ ?>                    
+							   </optgroup>
+                            </select>
+							</div>
+                        </div>
+						   <button name="action" dir="rtl" type="submit" class="btn btn-primary" value="Delete Company" >Delete Company</button>
+						   <button name="action" dir="rtl" type="submit" class="btn btn-primary"value="Edit Company" >Edit Company</button>
+                           </form >
+                                       
                                     </div>
-                                </div>
-                            </div>
+                                                      
+                            
                              
                         </div>
                     </div>
-                       <div> </div>
+					</div>
+					</div>
+					
+					
+                       
                         <div class="col-lg-3 col-md-6">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
@@ -320,7 +334,7 @@ $controller=new controller();
                                     </div>
                                     
                         <div>
-                           <form >
+                           <form action="" method="post">
 						   <div class="col-xs-9 text-right">
                        
                             <select name="Product" class="pull-right">
@@ -344,12 +358,13 @@ $controller=new controller();
     {
       echo "0 results";
     }
+	$controller->Delete_Product();
  ?>                    
 							   </optgroup>
                             </select>
                         </div>
-						   <button dir="rtl" type="submit" class="btn btn-primary">Delete Product</button>
-						   <button dir="rtl" type="submit" class="btn btn-primary">Edit Product</button>
+						   <button name="action" dir="rtl" type="submit" class="btn btn-primary" value="Delete Product" >Delete Product</button>
+						   <button name="action" dir="rtl" type="submit" class="btn btn-primary"value="Edit Product" >Edit Product</button>
                            </form >
                                        
                                     </div>
@@ -368,7 +383,7 @@ $controller=new controller();
                
                     
 
-    </div>
+    
     <!-- /#wrapper -->
 
     <!-- jQuery -->
