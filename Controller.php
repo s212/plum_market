@@ -116,5 +116,63 @@ class controller
         }
         
 	}
+	 public function Get_Product_Names()
+	{   $error = "Sorry Your Login Name or Password is invalid , try again";
+		$result = $this->query->Get_Product_Names();
+		if($result)
+		  
+					echo "Company Added successfully";
+	   else
+		     echo "<script type='text/javascript'>alert('$error');</script>";
+		return $result ;
+   
+	}
+	
+	public function Delete_Product()
+	
+	{  $error="deletion failed";
+	   $success="product deleted  successfully";
+		if(isset($_POST['action']))
+      {          
+        if($_POST['action']=="Delete Product")
+        {
+            $name= $_POST["Product"];
+			
+			$result=$this->query->Delete_Product($name);
+	   if($result)
+		  
+		  echo "<script type='text/javascript'>alert('$success');</script>";
+	   else
+		     echo "<script type='text/javascript'>alert('$error');</script>";
+	
+        }
+            
+	 }
+	}
+   
+	public function Delete_Company()
+	
+	{  $error="deletion failed";
+	   $success="Company deleted  successfully";
+		if(isset($_POST['action']))
+      {          
+        if($_POST['action']=="Delete Company")
+        {
+            $name= $_POST["Company"];
+			
+			$result=$this->query->Delete_Product($name);
+	   if($result)
+		  
+		  echo "<script type='text/javascript'>alert('$success');</script>";
+	   else
+		     echo "<script type='text/javascript'>alert('$error');</script>";
+	
+        }
+            
+	 }
+	}
+	
+        
+	
 }
 ?>
