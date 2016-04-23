@@ -1,47 +1,5 @@
 <?php
- include("Login.html");
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "plump_market";
-
-// Create connection
-$conn =  mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    echo "Connection failed: ";
-} 
-<?php
-   include("conductivity.php");
-   session_start();
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-      
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
-      $sql = "SELECT Id FROM account WHERE  password = '$mypassword' AND   UserName = '$myusername'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result);
-      //$active = $row['active'];
-      $count = mysqli_num_rows($result);
-      
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-        
-         $_SESSION['login_user'] = $myusername;
-         $message = "You are logged in ";
-		 header("location: home.php");
-		 echo $message;
-         
-      }else {
-          $error = "Sorry Your Login Name or Password is invalid , try again";
-		 
-		 echo "<script type='text/javascript'>alert('$error');</script>";
-      }
-   }
+  
 ?>
 <html>
    
@@ -75,7 +33,7 @@ if (!$conn) {
     <h1>Let's get started</h1>
     <div class="container">
         <h2>Sign In</h2>
-		 <form action = "" method = "post">>
+		 <form action = "" method = "post">
 			<input type="text" name = "username" class="name" placeholder="Username" required="">
 			<input type="password" name = "password" class="password" placeholder="Password" required="">
 			<ul>
@@ -86,7 +44,12 @@ if (!$conn) {
 			</ul>
             <a href="#">Forgot Password?</a><br>
 			<div class="clear"></div>
-			<input type="submit" value="SIGN IN">
+			<input  name="action1" type="submit" value="SIGN IN">
+			
+			
+			
+			<!--<div class="clear"></div>-->
+			
 		</form>
 	</div>
 	<div class="footer">
@@ -100,36 +63,3 @@ $controller->Log_In();
 
    </body>
 </html>
-
-$sql = "SELECT * FROM Product";
-$result = mysqli_query($conn, $sql);
-$rowcount=mysqli_num_rows($result);
-
-if (mysqli_num_rows($result) > 0) 
-{
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result))
-  
-    
-    if(isset($_POST['action']))
-{          
-    if($_POST['action']=="SIGN IN")
-    {
-        $email = mysqli_real_escape_string($connection,$_POST['email']);
-        $password = mysqli_real_escape_string($connection,$_POST['password']);
-        $strSQL = mysqli_query($connection,"select name from users where email='".$email."' and password='".md5($password)."'");
-        $Results = mysqli_fetch_array($strSQL);
-        if(count($Results)>=1)
-        {
-            $message = $Results['name']." Login Sucessfully!!";
-        }
-        else
-        {
-            $message = "Invalid email or password!!";
-        }        
-    }
-	
-	
-	 
-mysqli_close($conn);
-?>
