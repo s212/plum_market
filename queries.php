@@ -47,7 +47,15 @@ public function creat_Account($UserName,$password ,$Email)
 			mysqli_close($conn);
             return $numResults;
 	}
-	public function Add_Product($Name ,$Description ,$Price,$Num ,$Rate , $P_Type,$Country,$Company_Id )
+	public function Add_Product($Name ,$Email,$Phone_Num )
+	{
+		
+            $sql = "INSERT INTO Product (Name ,Email,Phone_Num  ) Values ('$Name' ,'$Email' ,'$Phone_Num' )";
+            $result = mysqli_query($this->conn, $sql);
+		     mysqli_close($conn);
+			 return $result;
+	}
+	public function Add_Company($Name ,$Description ,$Price,$Num ,$Rate , $P_Type,$Country,$Company_Id )
 	{
 		
             $sql = "INSERT INTO Product (Name ,Description ,Price,Num ,Rate , P_Type,Country,Company_Id  ) Values ('$Name' ,'$Description' ,'$Price','$Num','$Rate' , '$P_Type','$Country','$Company_Id' )";
