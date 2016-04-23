@@ -76,7 +76,7 @@ class controller
 	{
 		if(isset($_POST['action']))
       {          
-        if($_POST['action']=="addproduct")
+        if($_POST['action']=="Add")
         {
                 $name= $_POST["name"];
                 $price= $_POST["price"];
