@@ -316,11 +316,26 @@
                                     </div>
                                     <div class="col-xs-9 text-right">
                                          <select name="num" class="pull-right">
-                                <optgroup label="Quantity">
-                                    <option> 1 </option>
-                                    <option> 2 </option>
-                                    <option> 3 </option>
-                                    <option> 4 </option>
+                                <optgroup label="Company">
+                                    <?php                                  
+   $result=$controller->View_Company();
+     if (mysqli_num_rows($result) > 0) 
+     {
+    // output data of each row
+         while($row = mysqli_fetch_assoc($result))
+  
+    
+         {?>
+          <option >  <?php echo  $row["Name"]; ?> </option>
+ <?php						
+         }
+     } 
+
+    else 
+    {
+      echo "0 results";
+    }
+ ?>  
                                 </optgroup>
                             </select>
                         </div>
