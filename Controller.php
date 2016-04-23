@@ -66,12 +66,7 @@ class controller
 		return $result ;
    
 	}
-		public function Delete_Company()
-	{
-		$result = $this->query->Delete_Company();
-		return $result ;
-   
-	}
+	
 	public function Add_Product()
 	{
 		if(isset($_POST['action']))
