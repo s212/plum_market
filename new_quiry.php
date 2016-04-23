@@ -33,6 +33,45 @@ class Account extends  foo
 			mysqli_close($conn);
             return $numResults;
 	}
+	
+	
+	
+	public function View_Acc()
+	{
+		//$sql = "SELECT Id  FROM account";
+        //$result = mysqli_query($this->conn, $sql);
+		//return $result;
+		////
+		
+		
+		$sql = "SELECT * "  . " FROM account" . " WHERE UserName=   '".$_SESSION["username"]."'";                //'$_SESSION['username']'";
+        $result = mysqli_query( $this->conn , $sql);
+        $rowcount=mysqli_num_rows($result);
+		////////////////////////////////
+		$rowcount=mysqli_num_rows($result);
+        if (mysqli_num_rows($result) > 0) 
+        {
+          while($row = mysqli_fetch_assoc($result)) 
+	      {
+			  ?>
+		
+			username:  <?php echo $row["UserName"];?>
+			</br>
+									    </br>
+                                        Password <?php echo $row["password"];?>
+										
+                                    </br>
+									    </br>
+                                   
+                                        Email <?php echo $row["Email"];?></br>
+										</br>
+									    </br>
+										ID <?php echo $row["Id"];?>
+										</br>
+			<?php	
+		
+	      }
+		}
   
 }
 class Product extends  foo
