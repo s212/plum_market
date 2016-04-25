@@ -148,23 +148,30 @@ public function Log_In()
 	
         }
         
-	}	public function Add_Company()
+	}
+	public function Add_Company()
 	{
 		if(isset($_POST['action']))
       {          
-        if($_POST['action']=="addcompany")
+      
+       
+        if($_POST['action']=="Add")
         {
+       
+       
                 $name= $_POST["name"];
                 $email=$_POST["email"]; 
 		$phone_num=$_POST["phone_num"];
-		$result=$this->Company->Add_Company($name ,$email,$phone_num);
+                $desc =$_post["desc"];
+                
+		$result=$this->Company->Add_Company($Name ,$desc ,$Phone_Num,$Email);
 	        if($result)
 		  
 					echo "Company Added successfully";
 		else 
 		                        echo "faild";
-		}
-	
+		
+	}
         }
         
 	}
