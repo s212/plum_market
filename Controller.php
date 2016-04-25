@@ -112,6 +112,17 @@ public function Log_In()
 		return $result ;
    
 	}
+	public function View_s_Company()
+	{
+		$content= isset($_GET['content'])?$_GET['content']:'';
+		
+		$result= $this->Company->View_s_Company($content);
+		
+		
+		return $result;
+		
+		
+	}
 	
 	public function Add_Product()
 	{
