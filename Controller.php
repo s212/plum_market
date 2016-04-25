@@ -138,7 +138,7 @@ public function Log_In()
 		$countery=$_POST["countery"];
 		$company=$_POST["company"];
 		$row=mysqli_fetch_assoc($this->Company->Get_Company_Id($company));
-		$result=$this->query->Add_Product($name ,$description,$price,$quantity,0,$type,$countery,$row["Id"] );
+		$result=$this->Product->Add_Product($name ,$description,$price,$quantity,0,$type,$countery,$row["Id"] );
 	        if($result)
 		  
 					echo "Company Added successfully";
