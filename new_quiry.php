@@ -177,7 +177,14 @@ class Company extends  foo
             $result = mysqli_query($this->conn,$sql);
 			return $result;
 	}
-
+public function Add_Company($Name ,$desc ,$Phone_Num,$Email )
+	{ 
+		
+            $sql = "INSERT INTO Company (Name ,desc ,Phone_Num,Email  ) Values ('$Name' ,'$desc' ,'$Phone_Num','$Email' )";
+            $result = mysqli_query($this->conn, $sql);
+		     
+			 return $result;
+	}
 }
 class Offer extends  foo
 {}
