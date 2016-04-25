@@ -149,6 +149,18 @@ class Company extends  foo
             mysqli_close($conn);
 			return $result;
 	}
+	public function View_s_Company($Name)
+	{	
+	
+            $sql = "SELECT * FROM Company where Name='".$Name."'";
+         
+         
+            $result= mysqli_query($this->conn, $sql);
+          
+			return $result;
+		
+		
+	}
 	public function Get_Company_Id($Name)
 	{
 		
