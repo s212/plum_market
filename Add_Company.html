@@ -295,27 +295,30 @@
         <h2>Add_company</h2>
 		<form action="" method="post">
 			<h2><input name="name" type="text" class="name" placeholder="name" required=""></h2>
-			
-			<h2><input name="email"type="text" class="name" placeholder="Email address" required=""></h2>
-			<h2><input name="phone" type="text" class="name" placeholder="Phon Number" required=""></h2>
+			<h2><input name="Describtion" type="text" class="Describtion" placeholder="Describtion" required=""></h2>
+			<h2><input name="email" type="text" class="Email address" placeholder="Email address" required=""></h2>
+			<h2><input name="phone_num" type="text" class="Phone Number" placeholder="Phone Number" required=""></h2>
 			<div class="clear"></div>
-			 <input name="action" type="hidden" value="addcompany"> 
-			<h2><input type="submit" value="Add"></h2>
+	
+			<h2><input name="action" type="submit" value="Add_c"></h2>
+
 		</form>
 	</div>
-	<?php
-	
-       include("Controller.php");
-       $controller=new controller();
-
-       $controller->Add_Company();
-      ?>
 	
 	<div class="footer">
 		
 	</div>
                     
+ <?php
+ 
+include("Controller.php");
 
+$controller=new controller();
+
+$controller->Add_Company();
+ 
+ 
+?>
     </div>
     <!-- /#wrapper -->
 
